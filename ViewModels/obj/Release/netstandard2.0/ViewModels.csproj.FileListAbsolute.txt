@@ -1,0 +1,8 @@
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\bin\Release\netstandard2.0\ViewModels.deps.json
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\bin\Release\netstandard2.0\ViewModels.dll
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\bin\Release\netstandard2.0\ViewModels.pdb
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\obj\Release\netstandard2.0\ViewModels.csprojAssemblyReference.cache
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\obj\Release\netstandard2.0\ViewModels.AssemblyInfoInputs.cache
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\obj\Release\netstandard2.0\ViewModels.AssemblyInfo.cs
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\obj\Release\netstandard2.0\ViewModels.dll
+C:\Users\pacma\Documents\MoreRepos\Robocam\Robocam-FullSolution\Robocam-FullSolution\ViewModels\obj\Release\netstandard2.0\ViewModels.pdb

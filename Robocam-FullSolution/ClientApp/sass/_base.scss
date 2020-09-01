@@ -1,0 +1,62 @@
+// COLOR VARIABLES  
+$color-primary: #e01328;
+$color-primary-dark: #b92533;
+
+$color-secondary-light:#1d3652;  
+$color-secondary: #00a2ed;
+
+ 
+$color-white: #fff;
+$color-black: #000;     
+     
+$color-gray-light-1: #e2e2e2; 
+$color-gray-light-2: #aaa;
+$color-gray-light-3: rgb(165, 165, 165); 
+
+$color-gray-dark-1: #40404e; 
+$color-gray-dark-2: #30303a;
+
+$color-microsoft-blue: #00a2ed;
+$color-react: #00d8ff;
+
+// FONT VARIABLES
+$font-primary: 'Roboto', sans-serif;                  
+$font-secondary: 'Josefin Sans', sans-serif;  
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; //1200px
+$bp-large: 62.5em; //1000px
+$bp-medium: 50em;  //800px
+$bp-small: 37.5em; //600px    
+
+*,
+*::before,
+*::after {
+    margin: 0;  
+    padding: 0;         
+    box-sizing: inherit;
+} 
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-gray-dark-2;
+    font-weight: 300;  
+    line-height: 1.6;  
+    font-size: 1.6rem;
+    position: relative;
+} 
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+} 

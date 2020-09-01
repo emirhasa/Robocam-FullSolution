@@ -1,0 +1,32 @@
+.command-log {
+    padding-top: 1rem;
+    width: calc(640px + 2rem);
+    height: calc(480px + 2rem);
+
+    &__header {
+        // padding-right: 1.5rem;
+    }
+
+    &__display-button-container {
+        text-align: right;
+    }
+
+    .button-display-log {
+        background-color: $color-microsoft-blue;
+        padding: 0.65rem 2.5rem;
+        border: 1px solid transparent;
+        color: $color-white;
+        border-radius: 0px;
+        font-size: 1.5rem;
+
+        &:hover {
+            border: 1px solid $color-microsoft-blue;
+            color: $color-microsoft-blue;
+            background-color: $color-white;
+        }
+    }
+
+    .time {
+        color: $color-gray-light-2;
+    }
+}
