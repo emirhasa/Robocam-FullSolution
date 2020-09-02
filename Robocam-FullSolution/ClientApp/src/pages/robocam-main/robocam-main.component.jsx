@@ -29,6 +29,13 @@ const RobocamMainPage = () => {
             video.src = JSON.parse(message);
         });
 
+        connection.on("ReceiveSensorData", sensorData => {
+            console.log(sensorData);
+            setHumidity(sensorData.humidity);
+            setTemperature(sensorData.temperature);
+            setGasLevel(sensorData.gasLevel);
+        });
+
         return {
             sendMessage: (message, value = null) => {
                 connection.invoke("SendCommand", message, value).then(() => console.log(`Message sent with content: ${message}`));
@@ -128,9 +135,9 @@ const RobocamMainPage = () => {
         setLogHidden(!logHidden);
     }
 
-    const [humidity, setHumidity] = useState(50);
-    const [temperature, setTemperature] = useState(30);
-    const [gasLevel, setGasLevel] = useState("Normal");
+    const [humidity, setHumidity] = useState(null);
+    const [temperature, setTemperature] = useState(null);
+    const [gasLevel, setGasLevel] = useState(null);
 
     return (
         <div className='robocam'>

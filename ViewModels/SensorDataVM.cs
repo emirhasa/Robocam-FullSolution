@@ -8,6 +8,6 @@ namespace ViewModels
     {
         public int Temperature { get; set; }
         public int Humidity { get; set; }
-        public string GasLevel { get; set; }
+        public int GasLevel { get; set; }
     }
 }

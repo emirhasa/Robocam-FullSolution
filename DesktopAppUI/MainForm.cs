@@ -31,6 +31,15 @@ namespace DesktopAppUI
             _connection = null;
         }
 
+        public static async Task SetInterval(Action action, TimeSpan timeout)
+        {
+            await Task.Delay(timeout).ConfigureAwait(false);
+
+            action();
+
+            SetInterval(action, timeout);
+        }
+
         private async void buttonStart_Click(object sender, EventArgs e)
         {
 
@@ -88,17 +97,25 @@ namespace DesktopAppUI
                     case "v":
                         labelVelocityValue.Text = value;
                         var speed = int.Parse(value);
-                        if(speed > 0 && speed <= 33)
+                        if(speed > 0 && speed <= 24)
                         {
                             _serialPort.Write("1");
                         }
-                        if (speed > 33 && speed <= 66)
+                        if (speed >= 25 && speed <= 49)
                         {
                             _serialPort.Write("2");
                         }
-                        if (speed > 66 && speed <= 100)
+                        if (speed >= 50 && speed <= 74)
                         {
                             _serialPort.Write("3");
+                        }
+                        if (speed >=75 && speed <=99)
+                        {
+                            _serialPort.Write("4");
+                        }
+                        if (speed == 100)
+                        {
+                            _serialPort.Write("5");
                         }
                         break;
                     default:
@@ -118,26 +135,40 @@ namespace DesktopAppUI
             buttonDown.BackColor = default;
         }
 
-        private async void serialPort_CheckDataReceived()
+        private async Task serialPort_CheckDataReceived()
         {
-            string s = _serialPort.ReadExisting();
-            if(s != null)
+            string serialBuffer = _serialPort.ReadExisting();
+
+            if(!string.IsNullOrEmpty(serialBuffer))
             {
                 _serialPort.DiscardOutBuffer();
                 _serialPort.DiscardInBuffer();
 
+                var latestDataIndex = serialBuffer.LastIndexOf("H");
+                var lastSensorData = serialBuffer.Substring(latestDataIndex);
+
+                var humidity = lastSensorData.Substring(1, lastSensorData.IndexOf("T") - 1);
+                var temperature = lastSensorData.Substring(lastSensorData.IndexOf("T") + 1, lastSensorData.IndexOf("G") - lastSensorData.IndexOf("T") - 1);
+                var gasLevel = lastSensorData.Substring(lastSensorData.IndexOf("G") + 1, lastSensorData.IndexOf("E") - lastSensorData.IndexOf("G") - 1);
+
+                await SendSensorData(new SensorDataVM
+                {
+                    Temperature = int.Parse(temperature),
+                    Humidity = int.Parse(humidity),
+                    GasLevel = int.Parse(gasLevel)
+                });
             }
-            await _connection.InvokeAsync("SendSensorData", new SensorDataVM
-            {
-                Temperature = 30,
-                Humidity = 50,
-                GasLevel = "Moderate"
-            });
         }
 
-        private void buttonCheck_Click(object sender, EventArgs e)
+        private async Task SendSensorData(SensorDataVM data)
         {
-            serialPort_CheckDataReceived();
+            await _connection.InvokeAsync("SendSensorData", data);
+        }
+
+        private async void buttonCheck_Click(object sender, EventArgs e)
+        {
+
+            await SetInterval(async () => await serialPort_CheckDataReceived(), TimeSpan.FromSeconds(1));
         }
     }
 }
