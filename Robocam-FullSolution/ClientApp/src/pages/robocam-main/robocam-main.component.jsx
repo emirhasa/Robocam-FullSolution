@@ -128,9 +128,9 @@ const RobocamMainPage = () => {
         setLogHidden(!logHidden);
     }
 
-    const [humidity, setHumidity] = useState(null);
-    const [temperature, setTemperature] = useState(null);
-    const [gasLevel, setGasLevel] = useState(null);
+    const [humidity, setHumidity] = useState(50);
+    const [temperature, setTemperature] = useState(30);
+    const [gasLevel, setGasLevel] = useState("Normal");
 
     return (
         <div className='robocam'>

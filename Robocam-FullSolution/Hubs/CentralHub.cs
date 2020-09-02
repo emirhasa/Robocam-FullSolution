@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ViewModels;
 using ViewModels.Requests;
 
 namespace WebcaManageR.Hubs
@@ -19,6 +20,8 @@ namespace WebcaManageR.Hubs
         public async Task SendCommand(string message, string value)
         {
             await Clients.All.SendAsync("ReceiveCommand", message, value);
+
+            //log the command in db
             await _commandsService.LogCommand(new CommandInsertVM
             {
                 Content = message,
@@ -36,5 +39,9 @@ namespace WebcaManageR.Hubs
             await Clients.All.SendAsync("ReceiveImage", message);
         }
 
+        public async Task SendSensorData(SensorDataVM data)
+        {
+            await Clients.All.SendAsync("ReceiveSensorData", data);
+        }
     }
 }
