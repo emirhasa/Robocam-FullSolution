@@ -39,7 +39,7 @@ const VerticalSlider = (props) => {
             </Typography>
             <div>
                 <Slider
-                    orientation="vertical"
+                    orientation={props.orientation}
                     defaultValue={50}
                     aria-labelledby="vertical-slider"
                     getAriaValueText={valuetext}
