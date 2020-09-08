@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Grid, Slider, Typography, FormControlLabel, Checkbox } from '@material-ui/core';
 import icons from '../../assets/sprites.svg';
+import useWindowDimensions from '../../helper/useWindowDimensions';
 
 const marks = [
     {
@@ -39,7 +40,7 @@ const VerticalSlider = (props) => {
             </Typography>
             <div>
                 <Slider
-                    orientation="vertical"
+                    orientation={props.orientation}
                     defaultValue={50}
                     aria-labelledby="vertical-slider"
                     getAriaValueText={valuetext}
@@ -54,6 +55,9 @@ const VerticalSlider = (props) => {
 }
 
 const StreamCommandsPanel = (props) => {
+
+    const { height, width } = useWindowDimensions();
+    const orientation = width > 1000 ? 'vertical' : 'horizontal';
 
     return (
         <>
@@ -78,7 +82,7 @@ const StreamCommandsPanel = (props) => {
                             <svg><use xlinkHref={`${icons}#icon-darr`}></use></svg>
                         </button>
                         <div className='commands__slider'>
-                            <VerticalSlider value={props.sliderValue} />
+                            <VerticalSlider value={props.sliderValue} orientation={orientation} />
                         </div>
                     </div>
                     <Grid container item xs={12} className='commands__panel-start-stop'>

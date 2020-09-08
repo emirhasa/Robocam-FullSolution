@@ -278,13 +278,27 @@
             position: absolute;
             bottom: 3rem;
             right: 3rem;
-            color: red;
+            padding: 0.4rem;
+            color: white;
             font-weight: 500;
+            font-size: 2.5rem;
             background-color: rgba($color-microsoft-blue, 0.3);
 
             @media only screen and (max-width: $bp-medium) {
                 bottom: 5rem;
                 right: 5rem;
+            }
+
+            .green {
+                color: lime;
+            }
+
+            .yellow {
+                color: yellow;
+            }
+
+            .red {
+                color: red;
             }
         }
 

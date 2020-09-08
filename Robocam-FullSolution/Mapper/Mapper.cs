@@ -13,6 +13,7 @@ namespace Robocam_FullSolution.Mapper
         public Mapper()
         {
             CreateMap<CommandVM, Command>().ReverseMap();
+            CreateMap<UserVM, User>().ReverseMap();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace DesktopAppUI
         {
             InitializeComponent();
             _serialPort = new SerialPort();
-            _serialPort.PortName = "COM5";//Set your board COM
+            _serialPort.PortName = "COM6";//Set your board COM
             _serialPort.BaudRate = 19200;
             _serialPort.Open();
             Velocity = 50;

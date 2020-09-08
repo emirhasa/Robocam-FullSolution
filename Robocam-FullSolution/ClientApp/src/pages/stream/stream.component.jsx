@@ -154,7 +154,7 @@ const StreamPage = () => {
     return (
         <div className='robocam'>
             <Grid className='robocam__main' item container xs={12} justify="center" spacing={3}>
-                <Grid item xs={12} lg={3}>
+                <Grid item xs={4} lg={3}>
                     <StreamCommandsPanel
                         analogueMode={analogueMode}
                         buttonUpPressed={buttonUpPressed}
@@ -165,7 +165,7 @@ const StreamPage = () => {
                         sliderValue={sliderValue}
                     />
                 </Grid>
-                <Grid item xs={12} lg={5}>
+                <Grid item xs={8} lg={5}>
                     <div className='video__container'>
                         <div className='video__buttons'>
                             <Button className='video__button video__button-start' onClick={openStream}><PlayCircleFilledIcon /> START STREAM</Button>
