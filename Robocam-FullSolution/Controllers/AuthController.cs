@@ -39,11 +39,19 @@ namespace Robocam_FullSolution.Controllers
                 if(password_hash == user.PasswordHash)
                 {
                     //user authorized
-                    UserManager.SetLoggedUser(HttpContext, _mapper.Map<UserVM>(user));
+                    UserManager.SetLoggedUser(HttpContext, user);
                     return Ok();
                 }
             }
             throw new UserException("Wrong password or username!");
+        }
+
+        [HttpGet]
+        public async Task<UserVM> Test()
+        {
+            var user = UserManager.GetLoggedUser(HttpContext, _context);
+
+            return _mapper.Map<UserVM>(user);
         }
 
         public static string GenerateHash(string salt, string password)

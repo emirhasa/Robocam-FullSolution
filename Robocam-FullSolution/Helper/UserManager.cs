@@ -10,7 +10,7 @@ namespace Robocam_FullSolution.Helper
 {
     public static class UserManager
     {
-        public static void SetLoggedUser(this HttpContext Context, UserVM user)
+        public static void SetLoggedUser(this HttpContext Context, User user)
         {
             Context.Session.Set("CurrentUser", user);
         }
