@@ -12,9 +12,9 @@
 #define in4 10
 
 //defines pins for sensors, unnecessary but helps with readability
-#define DHT11PIN 22
+#define DHT11PIN 51
 dht11 DHT11;
-const int gasPin = A0;
+const int gasPin = A15;
 
 //enables reading different "velocities" for robot and
 //setting PWM accordingly, otherwise it will be a constant PWM signal

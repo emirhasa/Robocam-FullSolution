@@ -141,7 +141,7 @@ const RobocamMainPage = () => {
 
     return (
         <div className='robocam'>
-            <Grid className='robocam__main' item container xs={12} justify="center" spacing={3}>
+            <Grid className='robocam__main' item container xs={12} justify="" spacing={3}>
                 <Grid item xs={4} lg={3}>
                     <CommandsPanel
                         disabled={feedHidden}
@@ -155,8 +155,8 @@ const RobocamMainPage = () => {
                 <Grid item xs={8} lg={5}>
                     <div className='video__container'>
                         <div className='video__buttons'>
-                            <Button className='video__button video__button-start' onClick={openVideo}><PlayCircleFilledIcon /> START VIDEO</Button>
-                            <Button className='video__button video__button-pause' onClick={pauseVideo}><PauseCircleFilledIcon /> PAUSE VIDEO</Button>
+                            <Button className='video__button video__button-start' onClick={openVideo}><PlayCircleFilledIcon /> Start video</Button>
+                            <Button className='video__button video__button-pause' onClick={pauseVideo}><PauseCircleFilledIcon /> Pause video</Button>
                         </div>
                         <div className='video__feed'>
                             <img id="video-rcv" alt="feed" hidden={feedHidden} />

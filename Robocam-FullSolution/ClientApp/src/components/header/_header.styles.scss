@@ -3,7 +3,7 @@
     &__container {
         display: flex !important;
         flex-direction: row !important;
-        background-color: $color-secondary !important;
+        background-color: $color-primary !important;
     }
 
     &__button {
@@ -14,5 +14,15 @@
 
     a {
         text-decoration: none;
+        display: flex;
+
+        &.active {
+            background-color: #005982;
+        }
+    }
+
+    svg {
+        width: 2.4rem;
+        height: 2.4rem;
     }
 }

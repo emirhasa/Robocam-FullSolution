@@ -23,11 +23,10 @@ namespace DesktopAppUI
         {
             InitializeComponent();
             _serialPort = new SerialPort();
-            _serialPort.PortName = "COM6";//Set your board COM
+            _serialPort.PortName = "COM4";
             _serialPort.BaudRate = 19200;
             _serialPort.Open();
             Velocity = 50;
-
             _connection = null;
         }
 
@@ -43,23 +42,22 @@ namespace DesktopAppUI
         private async void buttonStart_Click(object sender, EventArgs e)
         {
 
+#if DEBUG
             var hubConnection = new HubConnectionBuilder()
             .WithUrl("https://localhost:44358/centralHub")
             .Build();
+#endif
 
-            //var hubConnection = new HubConnectionBuilder()
-            //.WithUrl("https://robocam2.brodev.info/centralHub")
-            //.Build();
+            var hubConnection = new HubConnectionBuilder()
+            .WithUrl("https://robocam2.brodev.info/centralHub")
+            .Build();
+
 
             _connection = hubConnection;
 
-            hubConnection.On<string, string>("ReceiveCommand", (message, value) =>
+            _connection.On<string, string>("ReceiveCommand", (message, value) =>
             {
-                //s - stop
-                //f - forward
-                //l - left
-                //r - right
-                //b - backward
+                //s - stop f - forward l - left r - right b - backward
                 switch(message)
                 {
                     case "stop":
@@ -148,8 +146,12 @@ namespace DesktopAppUI
                 var lastSensorData = serialBuffer.Substring(latestDataIndex);
 
                 var humidity = lastSensorData.Substring(1, lastSensorData.IndexOf("T") - 1);
-                var temperature = lastSensorData.Substring(lastSensorData.IndexOf("T") + 1, lastSensorData.IndexOf("G") - lastSensorData.IndexOf("T") - 1);
-                var gasLevel = lastSensorData.Substring(lastSensorData.IndexOf("G") + 1, lastSensorData.IndexOf("E") - lastSensorData.IndexOf("G") - 1);
+                var temperature = lastSensorData.Substring(
+                    lastSensorData.IndexOf("T") + 1, lastSensorData.IndexOf("G") - lastSensorData.IndexOf("T") - 1
+                    );
+                var gasLevel = lastSensorData.Substring(
+                    lastSensorData.IndexOf("G") + 1, lastSensorData.IndexOf("E") - lastSensorData.IndexOf("G") - 1
+                    );
 
                 await SendSensorData(new SensorDataVM
                 {
@@ -160,15 +162,15 @@ namespace DesktopAppUI
             }
         }
 
+
         private async Task SendSensorData(SensorDataVM data)
         {
             await _connection.InvokeAsync("SendSensorData", data);
         }
 
-        private async void buttonCheck_Click(object sender, EventArgs e)
+        private async void buttonSensors_Click(object sender, EventArgs e)
         {
-
             await SetInterval(async () => await serialPort_CheckDataReceived(), TimeSpan.FromSeconds(1));
         }
-    }
+    }   
 }

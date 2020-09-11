@@ -36,7 +36,7 @@
             this.checkBoxAnalogue = new System.Windows.Forms.CheckBox();
             this.labelVelocity = new System.Windows.Forms.Label();
             this.labelVelocityValue = new System.Windows.Forms.Label();
-            this.buttonCheck = new System.Windows.Forms.Button();
+            this.buttonSensors = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonStart
@@ -117,22 +117,22 @@
             this.labelVelocityValue.TabIndex = 7;
             this.labelVelocityValue.Visible = false;
             // 
-            // buttonCheck
+            // buttonSensors
             // 
-            this.buttonCheck.Location = new System.Drawing.Point(122, 251);
-            this.buttonCheck.Name = "buttonCheck";
-            this.buttonCheck.Size = new System.Drawing.Size(75, 23);
-            this.buttonCheck.TabIndex = 8;
-            this.buttonCheck.Text = "Check";
-            this.buttonCheck.UseVisualStyleBackColor = true;
-            this.buttonCheck.Click += new System.EventHandler(this.buttonCheck_Click);
+            this.buttonSensors.Location = new System.Drawing.Point(103, 251);
+            this.buttonSensors.Name = "buttonSensors";
+            this.buttonSensors.Size = new System.Drawing.Size(111, 23);
+            this.buttonSensors.TabIndex = 8;
+            this.buttonSensors.Text = "Turn on sensors";
+            this.buttonSensors.UseVisualStyleBackColor = true;
+            this.buttonSensors.Click += new System.EventHandler(this.buttonSensors_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(322, 286);
-            this.Controls.Add(this.buttonCheck);
+            this.Controls.Add(this.buttonSensors);
             this.Controls.Add(this.labelVelocityValue);
             this.Controls.Add(this.labelVelocity);
             this.Controls.Add(this.checkBoxAnalogue);
@@ -158,7 +158,7 @@
         private System.Windows.Forms.CheckBox checkBoxAnalogue;
         private System.Windows.Forms.Label labelVelocity;
         private System.Windows.Forms.Label labelVelocityValue;
-        private System.Windows.Forms.Button buttonCheck;
+        private System.Windows.Forms.Button buttonSensors;
     }
 }
 

@@ -1,4 +1,7 @@
 @import "sass/base";
-@import "./components/header/header.styles";
+
 @import "./pages/robocam-main/robocam-main.styles";
+@import "./pages/login/login.styles";
+
+@import "./components/header/header.styles";
 @import "./components/history/command-history.styles";

@@ -15,7 +15,7 @@
     }
 
     .button-display-log {
-        background-color: $color-microsoft-blue;
+        background-color: $color-primary;
         padding: 0.65rem 2.5rem;
         border: 1px solid transparent;
         color: $color-white;
@@ -23,13 +23,17 @@
         font-size: 1.5rem;
 
         &:hover {
-            border: 1px solid $color-microsoft-blue;
-            color: $color-microsoft-blue;
+            border: 1px solid $color-primary;
+            color: $color-primary;
             background-color: $color-white;
         }
     }
 
     .time {
         color: $color-gray-light-2;
+    }
+
+    &__command {
+        font-size: 1.4rem;
     }
 }

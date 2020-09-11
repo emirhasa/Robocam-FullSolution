@@ -16,7 +16,7 @@ using ViewModels.Requests;
 
 namespace Robocam_FullSolution.Controllers
 {
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -47,11 +47,18 @@ namespace Robocam_FullSolution.Controllers
         }
 
         [HttpGet]
-        public async Task<UserVM> Test()
+        public async Task<UserVM> GetLoggedUserProfile()
         {
             var user = UserManager.GetLoggedUser(HttpContext, _context);
 
             return _mapper.Map<UserVM>(user);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Logout()
+        {
+            UserManager.SetLoggedUser(HttpContext, null);
+            return Ok();
         }
 
         public static string GenerateHash(string salt, string password)

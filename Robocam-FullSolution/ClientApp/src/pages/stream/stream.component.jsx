@@ -113,7 +113,7 @@ const StreamPage = () => {
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
                 //take snapshot of canvas
-                const imgScreenshot = canvas.toDataURL("image/jpeg", 0.2);
+                const imgScreenshot = canvas.toDataURL("image/jpeg", 0.5);
 
                 //send image to hub, so it can be distributed to clients
                 signalRController.sendImage(JSON.stringify(imgScreenshot));
@@ -153,7 +153,7 @@ const StreamPage = () => {
 
     return (
         <div className='robocam'>
-            <Grid className='robocam__main' item container xs={12} justify="center" spacing={3}>
+            <Grid className='robocam__main' item container xs={12} justify="" spacing={3}>
                 <Grid item xs={4} lg={3}>
                     <StreamCommandsPanel
                         analogueMode={analogueMode}

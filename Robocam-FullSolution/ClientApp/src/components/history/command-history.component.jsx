@@ -19,7 +19,7 @@ const CommandHistory = (props) => {
 
             <div hidden={props.hidden}>
                 {props.commands.length > 0 ? props.commands.map((command) =>
-                    <p key={generateUID()} className='command__log-command'>
+                    <p key={generateUID()} className='command-log__command'>
                         <span className='time'>{command.timestamp}</span> {command.content}
                     </p>) : '...'
                 }

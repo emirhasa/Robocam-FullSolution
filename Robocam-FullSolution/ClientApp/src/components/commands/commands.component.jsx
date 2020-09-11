@@ -81,17 +81,20 @@ const CommandsPanel = (props) => {
                         <button className={`commands__command commands__command-4 ${!props.disabled ? 'enabled' : ''}`} onMouseDown={() => { props.startMove("down") }} onMouseUp={() => { props.stopMove() }} disabled={props.disabled}>
                             <svg><use xlinkHref={`${icons}#icon-darr`}></use></svg>
                         </button>
+                        <button className={`commands__command commands__command-stop ${!props.disabled ? 'enabled' : ''}`} onMouseDown={() => { props.stopMove() }} onMouseUp={() => { props.stopMove() }} disabled={props.disabled}>
+                            STOP
+                        </button>
                         <div className='commands__slider'>
                             <VerticalSlider onChangeCommitted={props.handleSliderChange} orientation={orientation} />
                         </div>
                     </div>
                     <Grid container item xs={12} className='commands__panel-start-stop'>
-                        <Grid item xs={6}>
+                        {/* <Grid item xs={6}>
                             <Button className={`button-stop ${!props.disabled ? 'enabled' : ''}`} fullWidth disabled={props.disabled} onClick={() => { props.stopMove() }}>STOP</Button>
                         </Grid>
                         <Grid item xs={6}>
                             <Button className={`button-start ${!props.disabled ? 'enabled' : ''}`} fullWidth disabled={props.disabled}><AddAPhotoIcon /> PHOTO</Button>
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={12}>
                             <FormControlLabel
                                 className={`checkbox-analogue ${!props.disabled ? 'enabled' : ''}`}
